@@ -53,6 +53,19 @@
             );
         }
     </script>
+
+    <br>
+    <input type="button", id="closingPopupButton">
+    <script>
+        closingPopupButton.onclick = () => {
+            let newWindow = open('index.html', "example", "widht=300,height=300");
+
+            newWindow.onload = function() {
+                newWindow.close();
+                alert(newWindow.closed);
+            }
+        };
+    </script>
     
 </body>
 
