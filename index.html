@@ -22,7 +22,7 @@
     <input type="button" id="contentFromJavaButton" , value="Generate content from Java Script">
     <script>
         contentFromJavaButton.onclick = () => {
-            let newWin = window.open("about:blank", "hello", "width=200,height-200");
+            let newWin = window.open("about:blank", "hello", "width=200,height=200");
             newWin.document.write("Hello Word!");
         }
     </script>
@@ -31,7 +31,7 @@
     <input type="button" id="modifyContentAfterLoadingButtton" value="Modify content after loading">
     <script>
         modifyContentAfterLoadingButtton.onclick = () => {
-            let newWindow = window.open("/", 'example', 'width=300,height=300');
+            let newWindow = window.open("index.html", 'example', 'width=300,height=300');
             newWindow.focus();
 
             alert(newWindow.location.href);
@@ -42,6 +42,18 @@
             }
         }
     </script>
+
+    <br>
+    <input type="button" value="Accessing window from popup" id="accessingWindowFromPopupButton">
+    <script>
+        accessingWindowFromPopupButton.onclick = () => {
+            let newWin = window.open("about:blank", "hello", "widht=200, height=200");
+            newWin.document.write(
+                "<script>window.opener.document.body.innerHTML = 'Test'<\/script>"
+            );
+        }
+    </script>
+    
 </body>
 
 </html>
