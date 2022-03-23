@@ -23,7 +23,23 @@
     <script>
         contentFromJavaButton.onclick = () => {
             let newWin = window.open("about:blank", "hello", "width=200,height-200");
-            newWin.document.write("Hello Word");
+            newWin.document.write("Hello Word!");
+        }
+    </script>
+
+    <br>
+    <input type="button" id="modifyContentAfterLoadingButtton" value="Modify content after loading">
+    <script>
+        modifyContentAfterLoadingButtton.onclick = () => {
+            let newWindow = window.open("/", 'example', 'width=300,height=300');
+            newWindow.focus();
+
+            alert(newWindow.location.href);
+
+            newWindow.onload = function () {
+                let html = `<div style="font-size: 30px">Welcome!</div>`;
+                newWindow.document.body.insertAdjacentHTML('afterbegin', html);
+            }
         }
     </script>
 </body>
